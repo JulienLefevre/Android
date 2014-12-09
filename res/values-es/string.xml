@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Proyecto Android Grupo 8</string>
+    <string name="title_activity_accueil">Proyecto Android</string>
+    <string name="hello_world">Holà todos</string>
+    <string name="pasDvlp">Esta opción no ha sido aún desarrollado</string>
+    <string name="DBConnection">Error al conectar con la base de datos</string>
+    <string name="textAcc">Bienvenida</string>
+    <string name="button_1">Categoría de Sms</string>
+    <string name="button_2">Unirse a una comunidad</string>
+    <string name="button_3">Crear una comunidad</string>
+    <string name="button_4">Dejar</string>
+    <string name="title_activity_choix_categorie">Elección de categoría</string>
+    <string name="aucuneCategorie">No categoría</string>
+    <string name="choixCategorie">Seleccione una comunidad, por fovor</string>
+    <string name="title_activity_choix_message">Selección del mensaje</string>
+    <string name="choixDuMessage">Selección del mensaje</string>
+    <string name="pasDeMessages">Ningún mensaje para esta comunidad</string>
+    <string name="title_activity_modif_msg">Edición del mensaje</string>
+    <string name="editionMessage">Edición del mensaje</string>
+    <string name="pasTel">introduzca un número de teléfono</string>
+    <string name="Numero">Número de teléfono</string>
+    <string name="champ">Campo</string>
+    <string name="boutonModifier">Editar</string>
+    <string name="boutonEnvoyer">Enviar</string>
+    <string name="button_Retour">Volver</string>
+    <string name="numChamp">Campo n° </string>
+    <string name="TitreModifMsg">Edición del mensaje</string>
+    <string name="num">Número de teléfono :</string>
+    <string name="titreChoixMsg">Selección del mensaje</string>
+    <string name="accesDB">Acceso a la base de datos</string>
+
+</resources>

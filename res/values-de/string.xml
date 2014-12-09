@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pasDvlp">Diese Option ist noch nicht entwickelt.</string>
+    
+    <string name="DBConnection">Fehler beim Verbinden mit der Datenbank verbinden</string>
+    <string name="textAcc">Willkommen</string>
+    <string name="button_1">SMS-Kategorie</string>
+    <string name="button_2">Registriert Community</string>
+    <string name="button_3">Schaffen Community</string>
+    <string name="button_4">Schließen</string>
+    
+    <string name="title_activity_choix_categorie">Auswahl der Kategorie</string>
+    <string name="aucuneCategorie">Keine Kategorie!</string>
+    <string name="choixCategorie">Bitte wählen Sie eine Kategorie</string>
+       
+    <string name="title_activity_choix_message">Auswahl der Nachricht</string>
+	<string name="choixDuMessage">Auswahl der Nachricht</string>
+	<string name="pasDeMessages">Keine Nachrichten in dieser Kategorie</string>
+	
+	<string name="title_activity_modif_msg">Nachricht bearbeiten</string>
+	<string name="editionMessage">Nachricht bearbeiten</string>
+	<string name="pasTel">Geben Sie eine Telefonnummer ein! </string>
+	<string name="Numero">Telefonnummer</string>
+	<string name="champ">Bereich</string>
+	<string name="boutonModifier">Veränderung</string>
+	<string name="boutonEnvoyer">Senden</string>
+	
+	<string name="button_Retour">Zurück</string>
+	
+	<string name="numChamp">Feld Nr : </string>
+	
+	<string name="TitreModifMsg">Nachricht bearbeiten </string>
+	
+	<string name="num">Telefonnummer : </string>
+	
+	<string name="titreChoixMsg">Auswahl der Nachricht</string>
+	
+	<string name="accesDB">"Der Zugang zu aktuellen Datenbank"</string>
+    
+</resources>

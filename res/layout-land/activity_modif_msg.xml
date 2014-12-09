@@ -1,0 +1,111 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="be.condorcet.projetandroidgroupe8.ModifMsg" >
+
+        <TextView
+            android:id="@+id/textViewChamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textViewMessage"
+            android:layout_below="@+id/textViewMessage"
+            android:layout_marginTop="35dp"
+            android:text="@string/numChamp" />
+
+        <EditText
+            android:id="@+id/editTextChamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textViewChamp"
+            android:layout_alignBottom="@+id/textViewChamp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/textViewChamp"
+            android:ems="10" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/boutonModifier"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textViewChamp"
+            android:layout_below="@+id/editTextChamp"
+            android:layout_marginTop="35dp"
+            android:onClick="ModificationMessage"
+            android:text="@string/boutonModifier" />
+
+        <Button
+            android:id="@+id/boutonEnvoyer"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/boutonModifier"
+            android:layout_alignTop="@+id/boutonModifier"
+            android:layout_marginLeft="19dp"
+            android:layout_toRightOf="@+id/boutonModifier"
+            android:enabled="false"
+            android:onClick="EnvoiMessage"
+            android:text="@string/boutonEnvoyer" />
+
+        <TextView
+            android:id="@+id/textViewMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textViewModifMsg"
+            android:layout_below="@+id/textViewModifMsg"
+            android:layout_marginTop="52dp"
+            android:text="Contenu du message" />
+
+        <TextView
+            android:id="@+id/textViewModifMsg"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textViewTel"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:text="@string/TitreModifMsg"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/textViewTel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textViewModifMsg"
+            android:layout_marginTop="19dp"
+            android:text="@string/num"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/editTextTel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textViewTel"
+            android:layout_alignBottom="@+id/textViewTel"
+            android:layout_alignLeft="@+id/editTextChamp"
+            android:ems="10"
+            android:inputType="phone" />
+        <Button
+        android:id="@+id/buttonRetour3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/boutonModifier"
+        android:layout_below="@+id/boutonModifier"
+        android:layout_marginTop="19dp"
+        android:onClick="gestionRetour"
+        android:text="@string/button_Retour" />
+        
+    </RelativeLayout>
+
+</ScrollView>

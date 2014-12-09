@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Project Android Groep 8</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_accueil">Project Android</string>
+    <string name="hello_world">Hallo iedereen</string>
+    
+    <string name="pasDvlp">Deze optie is nog niet ontwikkeld</string>
+    
+    <string name="DBConnection">Kan geen verbinding maken met de database</string>
+    <string name="textAcc">Welkom</string>
+    <string name="button_1">SMS categorie</string>
+    <string name="button_2">Lid worden van een gemeenschap</string>
+    <string name="button_3">Creëren van een gemeenschap</string>
+    <string name="button_4">Vertrekken</string>
+    
+    <string name="title_activity_choix_categorie">Categorie keuzen</string>
+    <string name="aucuneCategorie">Geen categorie</string>
+    <string name="choixCategorie">Selecteer een gemeenschap</string>
+    
+    <string name="title_activity_choix_message">Bericht keuzen</string>
+	<string name="choixDuMessage">Bericht keuzen</string>
+	<string name="pasDeMessages">Geen bericht voor deze categorie</string>
+	
+	<string name="title_activity_modif_msg">Editie van het bericht</string>
+	<string name="editionMessage">Editie van het bericht</string>
+	<string name="pasTel">Voer een telefoonnummer</string>
+	<string name="Numero">Number</string>
+	<string name="champ">Veld</string>
+	<string name="boutonModifier">Verandering</string>
+	<string name="boutonEnvoyer">Sturen</string>
+	
+	<string name="button_Retour">Teruggaan</string>
+
+	<string name="numChamp">Veld n° : </string>
+
+	<string name="TitreModifMsg">Bericht Bewerken</string>
+
+	<string name="num">Telefoonnummer : </string>
+
+	<string name="titreChoixMsg">Bericht keuzen</string>
+
+	<string name="accesDB">Toegang tot de databank</string>
+</resources>

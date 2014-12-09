@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+        <TextView
+            android:id="@+id/contenuMessage"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="26dp"
+            android:gravity="center"
+            android:text="@string/textAcc"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="250sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/contenuMessage"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+             android:onClick="gestionChoixCat"
+            android:text="@string/button_1" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="250sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:onClick="gestionRejComm"
+            android:text="@string/button_2" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="250sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+           android:onClick="gestionAddComm"
+            android:text="@string/button_3" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="250sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:onClick="gestionQuitter"
+            android:text="@string/button_4" />
+
+</RelativeLayout>
