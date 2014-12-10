@@ -1,5 +1,6 @@
 package be.condorcet.projetandroidgroupe8;
 
+import Modele.Utilisateur;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -10,17 +11,25 @@ import android.widget.Toast;
 
 public class Accueil extends ActionBarActivity {
 
+	protected Utilisateur utilisateur;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_accueil);
 	}
 	
-	public void gestionChoixCat(View view)
+	public void EnvoiSMS(View view)
     {	Intent i = new Intent(Accueil.this,ChoixCategorie.class);
 		startActivity(i);
 		finish();
     }
+	
+	public void CreationSMS(View view)
+	{	Intent i = new Intent(Accueil.this,ChoixCommunaute.class);
+		startActivity(i);
+		finish();
+	}
 	
 	public void gestionRejComm(View view) {
 		Toast.makeText(this, R.string.pasDvlp, Toast.LENGTH_SHORT).show();

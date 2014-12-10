@@ -40,6 +40,10 @@
             android:name=".ModifMsg"
             android:label="@string/title_activity_modif_msg" >
         </activity>
+        <activity
+            android:name=".ChoixCommunaute"
+            android:label="@string/title_activity_choix_communaute" >
+        </activity>
     </application>
 
 </manifest>

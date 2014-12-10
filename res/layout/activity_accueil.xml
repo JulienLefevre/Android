@@ -7,7 +7,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="18dp"
             android:gravity="center"
             android:text="@string/textAcc"
             android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -15,41 +15,50 @@
         <Button
             android:id="@+id/button1"
             android:layout_width="250sp"
-            android:layout_height="wrap_content"
+            android:layout_height="60sp"
             android:layout_below="@+id/contenuMessage"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
-             android:onClick="gestionChoixCat"
+            android:layout_marginTop="18dp"
+            android:onClick="EnvoiSMS"
             android:text="@string/button_1" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/button5"
             android:layout_width="250sp"
-            android:layout_height="wrap_content"
+            android:layout_height="60sp"
             android:layout_below="@+id/button1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="18dp"
+           	android:onClick="CreationSMS"
+            android:text="@string/boutonCreerSMS" />
+        
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="250sp"
+            android:layout_height="60sp"
+            android:layout_below="@+id/button5"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
             android:onClick="gestionRejComm"
             android:text="@string/button_2" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="250sp"
-            android:layout_height="wrap_content"
+            android:layout_height="60sp"
             android:layout_below="@+id/button2"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="35dp"
-           android:onClick="gestionAddComm"
+            android:layout_marginTop="18dp"
+            android:onClick="gestionAddComm"
             android:text="@string/button_3" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="250sp"
-            android:layout_height="wrap_content"
+            android:layout_height="60sp"
             android:layout_below="@+id/button3"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="18dp"
             android:onClick="gestionQuitter"
             android:text="@string/button_4" />
-
 </RelativeLayout>
