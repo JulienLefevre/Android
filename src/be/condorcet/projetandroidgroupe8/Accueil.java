@@ -25,6 +25,8 @@ public class Accueil extends ActionBarActivity {
 		finish();
     }
 	
+	//test
+	
 	public void CreationSMS(View view)
 	{	Intent i = new Intent(Accueil.this,ChoixCommunaute.class);
 		startActivity(i);
