@@ -161,10 +161,10 @@ public class UtilisateurDB extends Utilisateur implements CRUD {
         }
     }
     
-    public ArrayList <Communaute> mesCommunautesAdministrees () throws Exception {
+    public ArrayList <CommunauteDB> mesCommunautesAdministrees () throws Exception {
       
-    	ArrayList <Communaute> communities = new ArrayList <Communaute> ();
-        Communaute community;
+    	ArrayList <CommunauteDB> communities = new ArrayList <CommunauteDB> ();
+        CommunauteDB community;
         String req = "SELECT * FROM COMMUNAUTE WHERE ADMINISTRATEUR = ?"; 
         PreparedStatement pstmt = null;
         

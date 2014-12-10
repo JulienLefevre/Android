@@ -393,7 +393,7 @@ public class TestsUtilisateur {
 		try {
 			System.out
 					.println("\n\n> test voir mes communautés administrée (fructueux)");
-			ArrayList<Communaute> communities = new ArrayList<Communaute>();
+			ArrayList<CommunauteDB> communities = new ArrayList<CommunauteDB>();
 			communities = adm.mesCommunautesAdministrees();
 			System.out.println("OK : adm : " + adm + " administre : ");
 			for (Communaute comm : communities) {
@@ -416,7 +416,7 @@ public class TestsUtilisateur {
 
 		try {
 			System.out.println("\n\n> test voir mes communautés administrée (pas de communauté)");
-			ArrayList<Communaute> communities = new ArrayList<Communaute>();
+			ArrayList<CommunauteDB> communities = new ArrayList<CommunauteDB>();
 			communities = adm3.mesCommunautesAdministrees();
 			System.err.println("BAD communauté administré par adm3 trouvée : ");
 			for (Communaute comm : communities) {

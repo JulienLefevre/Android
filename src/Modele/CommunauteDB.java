@@ -9,16 +9,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 //import android.util.Log;
 
-public class CommunauteDB extends Communaute implements CRUD {
+public class CommunauteDB extends Communaute implements CRUD, Parcelable {
     
     protected static Connection dbConnect = null;
     
     public static void setConnection(Connection nouvdbConnect) {
       dbConnect = nouvdbConnect;
     }
-/*test */
+    
     public CommunauteDB() {
     }
 
@@ -147,4 +150,41 @@ public class CommunauteDB extends Communaute implements CRUD {
            throw new Exception(e.getMessage());      
         }
     }
+    
+//    public ArrayList <Utilisateur> categoriesCommunaute () throws Exception {
+//    	ArrayList <Utilisateur> membresCommunaute = new ArrayList <Utilisateur> ();
+//        Utilisateur user;
+//    	String req = "SELECT * FROM CATEGORIE WHERE COMMUNAUTE = ?"; 
+//        PreparedStatement pstmt = null;
+//        
+//        try
+//        {  boolean trouvé = false;
+//	       pstmt = dbConnect.prepareStatement(req);
+//	       pstmt.setInt(1,this.idCommunaute);
+//	 	   ResultSet rs = (ResultSet)pstmt.executeQuery();	
+//           while (rs.next()) {
+//              trouvé = true; 
+//              user = new UtilisateurDB(rs.getInt("UTILISATEUR"));
+//              ((CRUD)user).read();
+//              membresCommunaute.add(user);
+//           }
+//           if ( !trouvé )
+//               throw new Exception("Aucun membre dans la communauté");
+//           else 
+//               return membresCommunaute;
+//        }
+//        catch ( Exception e ) {
+//           throw new Exception(e.getMessage());      
+//        }
+//    }
+    
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+	
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		
+	}
 }

@@ -44,6 +44,10 @@
             android:name=".ChoixCommunaute"
             android:label="@string/title_activity_choix_communaute" >
         </activity>
+        <activity
+            android:name=".NouveauMessage"
+            android:label="@string/title_activity_nouveau_message" >
+        </activity>
     </application>
 
 </manifest>

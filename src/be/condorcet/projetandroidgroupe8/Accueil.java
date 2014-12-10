@@ -1,5 +1,8 @@
 package be.condorcet.projetandroidgroupe8;
 
+import java.util.ArrayList;
+
+import Modele.CommunauteDB;
 import Modele.Utilisateur;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,8 +13,9 @@ import android.view.View;
 import android.widget.Toast;
 
 public class Accueil extends ActionBarActivity {
-
+	
 	protected Utilisateur utilisateur;
+	protected ArrayList <CommunauteDB> communautes;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -20,12 +24,12 @@ public class Accueil extends ActionBarActivity {
 	}
 	
 	public void EnvoiSMS(View view)
-    {	Intent i = new Intent(Accueil.this,ChoixCategorie.class);
-		startActivity(i);
+    {	Intent intent = new Intent(Accueil.this,ChoixCategorie.class);
+    	communautes = new ArrayList<CommunauteDB>();
+    	intent.putExtra("mesCommunautes", communautes);
+		startActivity(intent);
 		finish();
     }
-	
-	//test
 	
 	public void CreationSMS(View view)
 	{	Intent i = new Intent(Accueil.this,ChoixCommunaute.class);

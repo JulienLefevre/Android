@@ -136,4 +136,31 @@ public class CategorieDB extends Categorie implements CRUD {
     		throw new Exception("Echec de la lecture : "+e.getMessage());
     	}
     }
+    
+    public static ArrayList <CategorieDB> readCategories (Integer idCommunaute) throws Exception {
+    	ArrayList <CategorieDB> categories = new ArrayList <CategorieDB> ();
+    	CategorieDB categorie = new CategorieDB();
+    	String req = "SELECT * FROM CATEGORIE WHERE COMMUNAUTE = ?";
+    	PreparedStatement pstmt = null;
+    	
+    	try
+    	{	pstmt = dbConnect.prepareStatement(req);
+    		pstmt.setInt(1,idCommunaute);
+    		ResultSet rs = (ResultSet)pstmt.executeQuery();
+    		while (rs.next()) {
+    			categorie.setIdCategorie(rs.getInt("ID_CATEGORIE"));
+    			categorie.setCommunaute(new CommunauteDB(rs.getInt("COMMUNAUTE")));
+     	    	((CRUD)categorie).read();
+     	    	categories.add(categorie);
+     	    	categorie = new CategorieDB();
+    		}
+    		if ( categories.isEmpty() )
+    			throw new Exception("Aucune catégorie disponible !");
+    		else
+    			return categories;
+    	}
+    	catch (Exception e) { 
+    		throw new Exception("Echec de la lecture : "+e.getMessage());
+    	}
+    }
 }

@@ -9,6 +9,7 @@ import Modele.CommunauteDB;
 import Modele.MessageDB;
 import Modele.UtilisateurDB;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -27,7 +28,9 @@ public class ChoixCommunaute extends ActionBarActivity {
 	private ArrayList <String> stringCommunautes;
 	private ArrayList <Integer> idCommunautes;
 	private ArrayAdapter <String> adapter;
+	private CommunauteDB communaute;
 	
+	private int idUtilisateur;
 	private ListView liste;
 	private Connection con;
 	
@@ -36,8 +39,9 @@ public class ChoixCommunaute extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_choix_communaute);
 		
-		/*MyAccesDB adb = new MyAccesDB(ChoixCommunaute.this);
-		adb.execute();*/
+		idUtilisateur = 41;
+		MyAccesDB adb = new MyAccesDB(ChoixCommunaute.this);
+		adb.execute();
 	}
 	
 	
@@ -56,7 +60,13 @@ public class ChoixCommunaute extends ActionBarActivity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	/*class MyAccesDB extends AsyncTask <String,Integer,Boolean> {
+	public void gestionRetour(View view){
+		Intent i = new Intent(ChoixCommunaute.this,Accueil.class);						
+		startActivity(i);
+		finish();
+	}
+	
+	class MyAccesDB extends AsyncTask <String,Integer,Boolean> {
 	    
 		private String resultat;
 		private ProgressDialog pgd = null;
@@ -76,7 +86,7 @@ public class ChoixCommunaute extends ActionBarActivity {
 		@Override
 		protected Boolean doInBackground(String... arg0) {
 			
-			if(con==null) {
+			if (con==null) {
 				con = new DBConnection().getConnection();
 				if(con==null) {
 					resultat = (getResources().getString(R.string.DBConnection));
@@ -91,12 +101,13 @@ public class ChoixCommunaute extends ActionBarActivity {
 				UtilisateurDB.setConnection(con);
 			} 
 			try	{
-				
+				UtilisateurDB utilisateur = new UtilisateurDB();
+				utilisateur.setIdUtilisateur(idUtilisateur);
+				utilisateur.read();
+				communautes = utilisateur.mesCommunautesAdministrees();
 			}
 			catch(Exception e) {
 				resultat = "erreur" +e.getMessage();
-				//Log.d("test","test "+e.getMessage());
-				//Toast.makeText(this, resultat , Toast.LENGTH_SHORT).show();
 				return false;
 			}
 			return true;		
@@ -107,14 +118,11 @@ public class ChoixCommunaute extends ActionBarActivity {
 			pgd.dismiss();
 			
 			if (result) {
-				liste = (ListView) findViewById(R.id.listeMessages);
-				idCommunautes = new ArrayList<Integer>();
+				liste = (ListView) findViewById(R.id.listeCommunautes);
 				stringCommunautes = new ArrayList<String>();
 				
 				for ( CommunauteDB c : communautes )
-				{	stringCommunautes.add(c.getNomCommunaute());
-					idCommunautes.add(c.getIdCommunaute());
-				}
+					stringCommunautes.add(c.getNomCommunaute());
 				
 				adapter = new  ArrayAdapter <String> (ChoixCommunaute.this,android.R.layout.simple_list_item_1,stringCommunautes);
 				liste.setAdapter(adapter);
@@ -123,12 +131,18 @@ public class ChoixCommunaute extends ActionBarActivity {
 						new OnItemClickListener()
 							{	@Override
 								public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,long arg3) {
-									
+									Intent intent = new Intent(ChoixCommunaute.this,ChoixCategorie.class);
+									communaute = communautes.get(arg2);
+									communautes = new ArrayList <CommunauteDB>();
+									communautes.add(communaute);
+										Log.d("Communautes",communautes.toString());
+									intent.putExtra("mesCommunautes", communautes);									
+									startActivity(intent);
+									finish();
 								}
 							}
 						);
-			
 			}
 		}		
-	}*/
+	}
 }

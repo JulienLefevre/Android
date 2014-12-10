@@ -4,7 +4,7 @@
 
    
     <TextView
-        android:id="@+id/contenuMessage"
+        android:id="@+id/choixCommunautes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -13,7 +13,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <ListView
-        android:id="@+id/listeMessages"
+        android:id="@+id/listeCommunautes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/contenuMessage"
@@ -22,7 +22,7 @@
     </ListView>
 
     <Button
-        android:id="@+id/buttonRetour2"
+        android:id="@+id/buttonRetour3"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
