@@ -1,16 +1,24 @@
 package be.condorcet.projetandroidgroupe8;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class NouveauMessage extends ActionBarActivity {
 
+	private int idCategorie;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_nouveau_message);
+		
+		Intent i = getIntent();
+		idCategorie = Integer.parseInt(i.getStringExtra("idCategorie"));
+		Toast.makeText(this, Integer.toString(idCategorie), Toast.LENGTH_SHORT).show();
 	}
 
 	@Override

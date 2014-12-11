@@ -39,7 +39,9 @@ public class ChoixCommunaute extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_choix_communaute);
 		
-		idUtilisateur = 41;
+		Intent i = getIntent();
+		idUtilisateur = Integer.parseInt(i.getStringExtra("idUtilisateur"));
+		
 		MyAccesDB adb = new MyAccesDB(ChoixCommunaute.this);
 		adb.execute();
 	}
@@ -120,9 +122,12 @@ public class ChoixCommunaute extends ActionBarActivity {
 			if (result) {
 				liste = (ListView) findViewById(R.id.listeCommunautes);
 				stringCommunautes = new ArrayList<String>();
+				idCommunautes = new ArrayList<Integer>();
 				
 				for ( CommunauteDB c : communautes )
-					stringCommunautes.add(c.getNomCommunaute());
+				{	stringCommunautes.add(c.getNomCommunaute());
+					idCommunautes.add(c.getIdCommunaute());
+				}
 				
 				adapter = new  ArrayAdapter <String> (ChoixCommunaute.this,android.R.layout.simple_list_item_1,stringCommunautes);
 				liste.setAdapter(adapter);
@@ -132,11 +137,7 @@ public class ChoixCommunaute extends ActionBarActivity {
 							{	@Override
 								public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,long arg3) {
 									Intent intent = new Intent(ChoixCommunaute.this,ChoixCategorie.class);
-									communaute = communautes.get(arg2);
-									communautes = new ArrayList <CommunauteDB>();
-									communautes.add(communaute);
-										Log.d("Communautes",communautes.toString());
-									intent.putExtra("mesCommunautes", communautes);									
+									intent.putExtra("idCommunaute", idCommunautes.get(arg2).toString());									
 									startActivity(intent);
 									finish();
 								}

@@ -14,8 +14,7 @@ import android.widget.Toast;
 
 public class Accueil extends ActionBarActivity {
 	
-	protected Utilisateur utilisateur;
-	protected ArrayList <CommunauteDB> communautes;
+	protected int idUtilisateur = 41;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +24,14 @@ public class Accueil extends ActionBarActivity {
 	
 	public void EnvoiSMS(View view)
     {	Intent intent = new Intent(Accueil.this,ChoixCategorie.class);
-    	communautes = new ArrayList<CommunauteDB>();
-    	intent.putExtra("mesCommunautes", communautes);
+    	intent.putExtra("idCommunaute","-1");
 		startActivity(intent);
 		finish();
     }
 	
 	public void CreationSMS(View view)
 	{	Intent i = new Intent(Accueil.this,ChoixCommunaute.class);
+		i.putExtra("idUtilisateur",Integer.toString(idUtilisateur));
 		startActivity(i);
 		finish();
 	}
@@ -48,6 +47,10 @@ public class Accueil extends ActionBarActivity {
 	public void gestionQuitter(View view) {
         finish();
     }
+	
+	public void changementVue(Class ancienneVue, Class nouvelleVue) {
+		
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

@@ -31,7 +31,10 @@ public class ChoixCategorie extends ActionBarActivity {
 	private ArrayList <CategorieDB> categories;
 	private ArrayAdapter <String> adapter;
 	private ArrayList <Integer> idCategorie;
-	private ArrayList <CommunauteDB> communautes;
+	private CommunauteDB communaute;
+	
+	private Class nouvelleActivite;
+	private int idCommunaute;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,21 +42,14 @@ public class ChoixCategorie extends ActionBarActivity {
 		setContentView(R.layout.activity_choix_categorie);
 		
 		try
-		{	Log.d("Test","1");
-			
-			Intent intent = getIntent();
-			communautes = intent.getParcelableArrayListExtra("mesCommunautes");
-			
-			Log.d("Test","2");
+		{	Intent intent = getIntent();
+			idCommunaute = Integer.parseInt(intent.getStringExtra("idCommunaute"));
 			
 			MyAccesDB adb = new MyAccesDB(ChoixCategorie.this);
 			adb.execute();
-			
-			Log.d("Test","3");
 		}
-		catch(Exception e)
-		{	Log.d("Exception",e.getMessage());
-			
+		catch(Exception e)	{	
+			Log.d("Exception",e.getMessage());
 		}
 	}
 
@@ -137,20 +133,17 @@ public class ChoixCategorie extends ActionBarActivity {
 			}
 			   
 			try	{
-				if ( communautes.isEmpty()) {
+				if ( idCommunaute == -1 ) {
 					categories = CategorieDB.readCategories();
+					nouvelleActivite = ChoixMessage.class;
 				}
 				else {
-					categories = new ArrayList <CategorieDB> ();
-					for (CommunauteDB com : communautes)
-						for (CategorieDB cat : CategorieDB.readCategories(com.getIdCommunaute()))
-							categories.add(cat);
+					categories = CategorieDB.readCategories(idCommunaute);
+					nouvelleActivite = NouveauMessage.class;
 				}
 			}
 			catch(Exception e) {
 				resultat = "erreur" +e.getMessage();
-				//Log.d("test","test "+e.getMessage());
-				//Toast.makeText(this, resultat , Toast.LENGTH_SHORT).show();
 				return false;
 			}
 			return true;		
@@ -177,15 +170,13 @@ public class ChoixCategorie extends ActionBarActivity {
 						new OnItemClickListener()
 							{	@Override
 								public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,long arg3) {
-									Intent i = new Intent(ChoixCategorie.this,ChoixMessage.class);
-									i.putExtra("IDCAT",idCategorie.get(arg2).toString());									
+									Intent i = new Intent(ChoixCategorie.this,nouvelleActivite);
+									i.putExtra("idCategorie",idCategorie.get(arg2).toString());							
 									startActivity(i);
 									finish();
 								}
 							}
 						);
-				
-				
 			}
 		}		
 	}

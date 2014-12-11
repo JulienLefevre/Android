@@ -40,7 +40,7 @@ public class ChoixMessage extends ActionBarActivity {
 		setContentView(R.layout.activity_choix_message);
 		Intent i = getIntent();
 		
-		idCategorie = Integer.parseInt(i.getStringExtra("IDCAT"));
+		idCategorie = Integer.parseInt(i.getStringExtra("idCategorie"));
 		
 		MyAccesDB adb = new MyAccesDB(ChoixMessage.this); 
 		adb.execute();
