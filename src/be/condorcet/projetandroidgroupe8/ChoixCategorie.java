@@ -171,7 +171,7 @@ public class ChoixCategorie extends ActionBarActivity {
 							{	@Override
 								public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,long arg3) {
 									Intent i = new Intent(ChoixCategorie.this,nouvelleActivite);
-									i.putExtra("idCategorie",idCategorie.get(arg2).toString());							
+									i.putExtra("idCategorie",idCategorie.get(arg2).toString());	
 									startActivity(i);
 									finish();
 								}

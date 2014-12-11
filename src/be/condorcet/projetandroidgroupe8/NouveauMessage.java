@@ -1,8 +1,16 @@
 package be.condorcet.projetandroidgroupe8;
 
+import java.sql.Connection;
+
+import be.condorcet.projetandroidgroupe8.ChoixCommunaute.MyAccesDB;
+import myconnections.DBConnection;
+import Modele.MessageDB;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +20,9 @@ import android.widget.Toast;
 public class NouveauMessage extends ActionBarActivity {
 	private EditText editText;
 	private int idCategorie;
+	private Connection con = null;
+	private String msg = "";
+	private String retour;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +32,9 @@ public class NouveauMessage extends ActionBarActivity {
 		
 		Intent i = getIntent();
 		idCategorie = Integer.parseInt(i.getStringExtra("idCategorie"));
-		Toast.makeText(this, Integer.toString(idCategorie), Toast.LENGTH_SHORT).show();
+		MyAccesDB adb = new MyAccesDB(NouveauMessage.this);
+		adb.execute();
+		//Toast.makeText(this, Integer.toString(idCategorie), Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
@@ -43,18 +56,75 @@ public class NouveauMessage extends ActionBarActivity {
 		return super.onOptionsItemSelected(item);
 	}
 	public void GestTilda(View view) {
-		String msg = ""+editText.getText().toString();
+		msg = ""+editText.getText().toString();
 		editText.setText(msg + " [~] ");
+		msg = ""+editText.getText().toString();
 	}
 	
 	public void EnrMessage(View view) {
-		String msg = ""+editText.getText().toString();
+		msg = ""+editText.getText().toString();
+		try	{
+		    MessageDB messag = new MessageDB(msg,idCategorie);
+		    messag.create();	
 		Toast.makeText(this, getResources().getString(R.string.estEnr) + msg , Toast.LENGTH_SHORT).show();
-    }
+		}
+		catch(Exception e) {
+			if(retour.substring(0, 9).equals("ORA-00001")){
+				Toast.makeText(this, getResources().getString(R.string.errDoublMsg) + msg , Toast.LENGTH_SHORT).show();
+			Log.e("erreur",retour);
+			}
+			
+		}	
+		
+	}
 	
 	public void gestionRetourAcc(View view){
 		Intent i = new Intent(NouveauMessage.this,Accueil.class);						
 		startActivity(i);
 		finish();
 	}
+	
+class MyAccesDB extends AsyncTask <String,Integer,Boolean> {
+	    
+		private String resultat = "";
+		private ProgressDialog pgd = null;
+
+		public MyAccesDB (NouveauMessage pActivity) { }
+
+		private void link (NouveauMessage pActivity) { }
+
+		protected void onPreExecute(){
+			super.onPreExecute();
+			pgd = new ProgressDialog(NouveauMessage.this);
+			pgd.setMessage(getResources().getString(R.string.accesDB));
+			pgd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+			pgd.show();
+		}
+
+		@Override
+		protected Boolean doInBackground(String... arg0) {
+			
+			if (con==null) {
+				con = new DBConnection().getConnection();
+				if(con==null) {
+					resultat = (getResources().getString(R.string.DBConnection));
+					Log.d("connexion","connexion BAD");
+					return false;
+     	    	}
+				Log.d("connexion","connexion OK");
+				
+				MessageDB.setConnection(con);
+			} 
+			
+			return true;		
+		}
+
+		protected void onPostExecute(Boolean result){
+			super.onPostExecute(result);
+			pgd.dismiss();
+			retour = resultat;
+			
+		}
 }
+}
+

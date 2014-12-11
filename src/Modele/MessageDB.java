@@ -25,6 +25,9 @@ public class MessageDB extends Message implements CRUD {
     public MessageDB(String texte, Categorie categorie) {
         super(texte, categorie);
     }
+    public MessageDB(String texte, int idcategorie) {
+    	super(texte,idcategorie);	    
+    }
 
     public MessageDB() {
     }

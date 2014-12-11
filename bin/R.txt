@@ -441,6 +441,7 @@ int string choixCategorie 0x7f0a0016
 int string choixCommunaute 0x7f0a002d
 int string choixDuMessage 0x7f0a0018
 int string editionMessage 0x7f0a001b
+int string errDoublMsg 0x7f0a0035
 int string estEnr 0x7f0a0034
 int string hello_world 0x7f0a002a
 int string num 0x7f0a0024
@@ -456,6 +457,7 @@ int string title_activity_choix_communaute 0x7f0a002c
 int string title_activity_choix_message 0x7f0a0017
 int string title_activity_modif_msg 0x7f0a001a
 int string title_activity_nouveau_message 0x7f0a002e
+int string titreChoixComm 0x7f0a0036
 int string titreChoixMsg 0x7f0a0025
 int style AppBaseTheme 0x7f0b008b
 int style AppTheme 0x7f0b008c

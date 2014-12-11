@@ -77,6 +77,7 @@ public class ChoixMessage extends ActionBarActivity {
 	
 	public void gestionRetour(View view){
 		Intent i = new Intent(ChoixMessage.this,ChoixCategorie.class);						
+		i.putExtra("idCommunaute","-1");
 		startActivity(i);
 		finish();
 	}

@@ -17,11 +17,14 @@ public class Message {
     }
 
     public Message(String texte, Categorie categorie) {
-		super();
 		this.texte = texte;
 		this.categorie = categorie;
 	}
-
+    
+    public Message( String texte, int idcategorie){
+    	this.texte = texte;
+    	this.categorie = new Categorie(idcategorie);
+    }
 
 	public Message(int idMessage) {
         this.idMessage = idMessage;

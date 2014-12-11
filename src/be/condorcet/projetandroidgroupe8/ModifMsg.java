@@ -70,7 +70,7 @@ public class ModifMsg extends ActionBarActivity {
 
 	public void gestionRetour(View view){
 		Intent i = new Intent(ModifMsg.this,ChoixMessage.class);						
-		i.putExtra("IDCAT",""+idCat);
+		i.putExtra("idCategorie",""+idCat);
 		startActivity(i);
 		finish();
 	}

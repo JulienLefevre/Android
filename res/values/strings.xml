@@ -41,6 +41,7 @@
     <string name="boutonEnregistrer">Enregistrer</string>
 	<string name="button_RetourAcc">Retour</string>
 	<string name="estEnr">Enregistrement de :  </string>
-	
+	<string name="errDoublMsg">Le message existe déjà</string>
+	<string name="titreChoixComm">Choix de la communauté</string>
 	
 </resources>
