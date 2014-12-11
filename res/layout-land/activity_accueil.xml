@@ -1,4 +1,12 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:background="#2095FF"
+    >
+    
+<RelativeLayout
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
@@ -12,44 +20,54 @@
             android:text="@string/textAcc"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="250sp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/contenuMessage"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="36dp"
-            android:onClick="gestionChoixCat"
-            android:text="@string/button_1" />
+         <Button
+             android:id="@+id/button4"
+             android:layout_width="250sp"
+             android:layout_height="wrap_content"
+             android:layout_below="@+id/button2"
+             android:layout_centerHorizontal="true"
+             android:onClick="gestionQuitter"
+             android:layout_marginTop="20dp"
+             android:text="@string/button_4" />
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="250sp"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/button1"
-            android:layout_below="@+id/button1"
-            android:layout_marginTop="30dp"
-            android:onClick="gestionQuitter"
-            android:text="@string/button_4" />
+         <Button
+             android:id="@+id/button5"
+             android:layout_width="250sp"
+             android:layout_height="wrap_content"
+             android:layout_above="@+id/button2"
+             android:layout_alignLeft="@+id/button1"
+             android:onClick="CreationSMS"
+             android:text="@string/boutonCreerSMS" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="250sp"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/button4"
-            android:layout_toRightOf="@+id/button1"
-            android:onClick="gestionRejComm"
-            android:text="@string/button_2" />
+         <Button
+             android:id="@+id/button2"
+             android:layout_width="250sp"
+             android:layout_height="wrap_content"
+             android:layout_alignLeft="@+id/button3"
+             android:layout_below="@+id/button3"
+             android:layout_marginTop="20dp"
+             android:onClick="gestionRejComm"
+             android:text="@string/button_2" />
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="250sp"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/button4"
-            android:layout_alignBottom="@+id/button4"
-            android:layout_toRightOf="@+id/button4"
-            android:onClick="gestionAddComm"
-            android:text="@string/button_3" />
+         <Button
+             android:id="@+id/button1"
+             android:layout_width="250sp"
+             android:layout_height="wrap_content"
+             android:layout_above="@+id/button4"
+             android:layout_alignParentLeft="true"
+             android:layout_marginLeft="18dp"
+             android:onClick="gestionChoixCat"
+             android:text="@string/button_1" />
+
+         <Button
+             android:id="@+id/button3"
+             android:layout_width="250sp"
+             android:layout_height="wrap_content"
+             android:layout_below="@+id/contenuMessage"
+             android:layout_marginTop="17dp"
+             android:layout_toRightOf="@+id/button5"
+             android:onClick="gestionAddComm"
+             android:text="@string/button_3" />
 
 </RelativeLayout>
+</ScrollView>

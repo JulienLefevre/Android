@@ -35,5 +35,12 @@
     <string name="title_activity_choix_communaute">ChoixCommunaute</string>
     <string name="choixCommunaute">Veuillez choisir une communauté</string>
     <string name="title_activity_nouveau_message">NouveauMessage</string>
-
+    <string name="TitreNouvMsg">Nouveau message</string>
+    <string name="soustitreNvMsg">Entrez un message</string>
+    <string name="boutonAjTilda">Ajouter un champs variable</string>
+    <string name="boutonEnregistrer">Enregistrer</string>
+	<string name="button_RetourAcc">Retour</string>
+	<string name="estEnr">Enregistrement de :  </string>
+	
+	
 </resources>

@@ -5,16 +5,19 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class NouveauMessage extends ActionBarActivity {
-
+	private EditText editText;
 	private int idCategorie;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_nouveau_message);
+		editText = (EditText) findViewById(R.id.editTextNvMsg);
 		
 		Intent i = getIntent();
 		idCategorie = Integer.parseInt(i.getStringExtra("idCategorie"));
@@ -38,5 +41,20 @@ public class NouveauMessage extends ActionBarActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	public void GestTilda(View view) {
+		String msg = ""+editText.getText().toString();
+		editText.setText(msg + " [~] ");
+	}
+	
+	public void EnrMessage(View view) {
+		String msg = ""+editText.getText().toString();
+		Toast.makeText(this, getResources().getString(R.string.estEnr) + msg , Toast.LENGTH_SHORT).show();
+    }
+	
+	public void gestionRetourAcc(View view){
+		Intent i = new Intent(NouveauMessage.this,Accueil.class);						
+		startActivity(i);
+		finish();
 	}
 }
