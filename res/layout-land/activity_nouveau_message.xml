@@ -33,29 +33,14 @@
         android:layout_marginTop="15dp"
         android:text="@string/soustitreNvMsg" />
 
-    <EditText
-        android:id="@+id/editTextNvMsg"
+     <EditText
+        android:id="@+id/editText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textViewMessage"
-        android:layout_alignRight="@+id/boutonEnr"
+        android:layout_alignRight="@+id/boutonTilda"
         android:layout_below="@+id/textViewMessage"
-        android:ems="10"
-        android:inputType="textMultiLine" >
-
-        <requestFocus />
-    </EditText>
-
-    <Button
-        android:id="@+id/boutonTilda"
-        android:layout_width="135dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/buttonRetour5"
-        android:layout_alignRight="@+id/buttonRetour5"
-        android:layout_below="@+id/editTextNvMsg"
-        android:layout_marginTop="21dp"
-        android:onClick="GestTilda"
-        android:text="@string/boutonAjTilda" />
+        android:ems="10" />
 
     <Button
         android:id="@+id/boutonEnr"
@@ -77,6 +62,16 @@
         android:layout_alignParentBottom="true"
         android:onClick="gestionRetourAcc"
         android:text="@string/button_RetourAcc" />
+
+    <Button
+        android:id="@+id/boutonTilda"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonRetour5"
+        android:layout_alignRight="@+id/buttonRetour5"
+        android:layout_below="@+id/editText1"
+        android:onClick="GestTilda"
+        android:text="@string/boutonAjTilda" />
 
 </RelativeLayout>
 

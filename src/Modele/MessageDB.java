@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import android.util.Log;
+
 //import android.util.Log;
 
 public class MessageDB extends Message implements CRUD {
@@ -25,9 +27,7 @@ public class MessageDB extends Message implements CRUD {
     public MessageDB(String texte, Categorie categorie) {
         super(texte, categorie);
     }
-    public MessageDB(String texte, int idcategorie) {
-    	super(texte,idcategorie);	    
-    }
+   
 
     public MessageDB() {
     }
@@ -37,11 +37,12 @@ public class MessageDB extends Message implements CRUD {
     }
 
     @Override
+    
     public void create() throws Exception {
-        CallableStatement cstmt = null;
+       // CallableStatement cstmt = null;
        try
        {  String query = "CALL CREATE_MESSAGE(?,?,?)";
-          cstmt = dbConnect.prepareCall(query);
+       CallableStatement cstmt = dbConnect.prepareCall(query);
           cstmt.registerOutParameter(1,java.sql.Types.INTEGER);
           cstmt.setString(2,this.texte);
           cstmt.setInt(3,this.categorie.getIdCategorie());
@@ -49,9 +50,10 @@ public class MessageDB extends Message implements CRUD {
           this.idMessage = cstmt.getInt(1); 
        }
        catch(Exception e ) {
-          throw new Exception("Erreur de création "+e.getMessage());
+          throw new Exception(""/*Erreur de création"*/+e.getMessage());
        }   
     }
+     	  
 
     @Override
     public void update() throws Exception {

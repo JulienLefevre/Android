@@ -142,9 +142,15 @@ public class ChoixMessage extends ActionBarActivity {
 				idMessage = new ArrayList<Integer>();
 				
 				for ( MessageDB m : messages )
-				{	nomMessage.add(m.getTexte());
-					messagesRaccourcis.add(m.getTexte().substring(0,23) + " ...");
-					idMessage.add(m.getIdMessage());
+				{	String msg = m.getTexte();
+					nomMessage.add(msg);
+				       
+				   if(m.getTexte().length()>23){
+					    msg=m.getTexte().substring(0,23) + " ...";
+				     }
+				   messagesRaccourcis.add(msg);
+				   
+					 idMessage.add(m.getIdMessage());
 				}
 				
 				adapter = new  ArrayAdapter <String> (ChoixMessage.this,android.R.layout.simple_list_item_1,messagesRaccourcis);

@@ -2,8 +2,8 @@ package be.condorcet.projetandroidgroupe8;
 
 import java.sql.Connection;
 
-import be.condorcet.projetandroidgroupe8.ChoixCommunaute.MyAccesDB;
 import myconnections.DBConnection;
+import Modele.Categorie;
 import Modele.MessageDB;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -22,19 +23,34 @@ public class NouveauMessage extends ActionBarActivity {
 	private int idCategorie;
 	private Connection con = null;
 	private String msg = "";
-	private String retour;
+	
+	//private MessageDB messag = new MessageDB();
+	private  Button mButtonEnr = null;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_nouveau_message);
-		editText = (EditText) findViewById(R.id.editTextNvMsg);
+		editText = (EditText) findViewById(R.id.editText1);
 		
 		Intent i = getIntent();
 		idCategorie = Integer.parseInt(i.getStringExtra("idCategorie"));
+		
 		MyAccesDB adb = new MyAccesDB(NouveauMessage.this);
 		adb.execute();
-		//Toast.makeText(this, Integer.toString(idCategorie), Toast.LENGTH_SHORT).show();
+		
+		
+		
+		
+		Toast.makeText(this, Integer.toString(idCategorie), Toast.LENGTH_SHORT).show();
+		
+		mButtonEnr = (Button) findViewById(R.id.boutonEnr);
+		
+		//if(retour.substring(0, 9).equals("ORA-00001")){
+		//	Toast.makeText(this, getResources().getString(R.string.errDoublMsg) , Toast.LENGTH_SHORT).show();
+		   
+		//}
+		
 	}
 
 	@Override
@@ -56,33 +72,68 @@ public class NouveauMessage extends ActionBarActivity {
 		return super.onOptionsItemSelected(item);
 	}
 	public void GestTilda(View view) {
-		msg = ""+editText.getText().toString();
+		msg = editText.getText().toString();
 		editText.setText(msg + " [~] ");
 		msg = ""+editText.getText().toString();
 	}
 	
 	public void EnrMessage(View view) {
 		msg = ""+editText.getText().toString();
+		
+	
 		try	{
-		    MessageDB messag = new MessageDB(msg,idCategorie);
-		    messag.create();	
-		Toast.makeText(this, getResources().getString(R.string.estEnr) + msg , Toast.LENGTH_SHORT).show();
+			MessageDB messag = new MessageDB(msg,new Categorie(idCategorie));
+		    messag.create();
+		    
 		}
 		catch(Exception e) {
-			if(retour.substring(0, 9).equals("ORA-00001")){
-				Toast.makeText(this, getResources().getString(R.string.errDoublMsg) + msg , Toast.LENGTH_SHORT).show();
-			Log.e("erreur",retour);
+			if(e.getMessage().equals("null"))
+			{
+				Toast.makeText(this, getResources().getString(R.string.estEnr) + " " + msg , Toast.LENGTH_SHORT).show();
+				Log.e("erreur !!!!!!!",e.getMessage());
 			}
+			else{
+				Log.e("erreur2 !!!!!!!",e.getMessage());
+			if(e.getMessage().substring(0,5).equals("OALL8")){
+				Toast.makeText(this, getResources().getString(R.string.errDoublMsg) , Toast.LENGTH_SHORT).show();
+			  
+			} 
 			
-		}	
+			}
+		}
+		/*try	{
+			Log.e("erreur commit !!!!!!!","non1");
+		    con.commit();
+		    Log.e("erreur commit !!!!!!!","non2");
+	     }
+		catch(Exception e) {
+			Log.e("erreur commit !!!!!!!",e.getMessage());
+		}*/
+		Intent i = new Intent(NouveauMessage.this,Accueil.class);						
+		startActivity(i);
+		finish();
 		
 	}
-	
 	public void gestionRetourAcc(View view){
 		Intent i = new Intent(NouveauMessage.this,Accueil.class);						
 		startActivity(i);
 		finish();
 	}
+	@Override
+	public void onDestroy(){
+		super.onDestroy();
+		 try {
+			 con.close();
+			 con = null;
+			 Log.d("connexion","deconnexion OK");
+		 }
+		 catch (Exception e) {
+		 
+		 }
+		 Log.d("connexion","deconnexion OK");
+	}
+
+	
 	
 class MyAccesDB extends AsyncTask <String,Integer,Boolean> {
 	    
@@ -113,7 +164,8 @@ class MyAccesDB extends AsyncTask <String,Integer,Boolean> {
      	    	}
 				Log.d("connexion","connexion OK");
 				
-				MessageDB.setConnection(con);
+				//messag.setConnection(con);
+				MessageDB.setConnection(con);				
 			} 
 			
 			return true;		
@@ -122,7 +174,26 @@ class MyAccesDB extends AsyncTask <String,Integer,Boolean> {
 		protected void onPostExecute(Boolean result){
 			super.onPostExecute(result);
 			pgd.dismiss();
-			retour = resultat;
+			/*retour = resultat;
+			mButtonEnr.setOnClickListener(new  View.OnClickListener() {
+				@Override
+					public  void onClick(View v) {
+					
+					msg = ""+editText.getText().toString();
+					Log.d("okkkkkkkkk",msg);
+					//Toast.makeText(this, getResources().getString(R.string.estEnr) + " " + msg , Toast.LENGTH_SHORT).show();
+				
+					try	{
+					    messag = new MessageDB(msg,idCategorie);
+					    //messag.setTexte(msg);
+					    //messag.setCategorie(new Categorie(idCategorie));
+					    messag.create();	
+					}
+					catch(Exception e) {
+						Log.e("erreur !!!!!!!",e.getMessage());
+					}
+							}
+				});*/
 			
 		}
 }

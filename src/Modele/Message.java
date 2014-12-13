@@ -21,12 +21,7 @@ public class Message {
 		this.categorie = categorie;
 	}
     
-    public Message( String texte, int idcategorie){
-    	this.texte = texte;
-    	this.categorie = new Categorie(idcategorie);
-    }
-
-	public Message(int idMessage) {
+    public Message(int idMessage) {
         this.idMessage = idMessage;
     }
 
