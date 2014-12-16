@@ -42,18 +42,36 @@ public class MessageDB extends Message implements CRUD {
        // CallableStatement cstmt = null;
        try
        {  String query = "CALL CREATE_MESSAGE(?,?,?)";
-       CallableStatement cstmt = dbConnect.prepareCall(query);
+          CallableStatement cstmt = dbConnect.prepareCall(query);
           cstmt.registerOutParameter(1,java.sql.Types.INTEGER);
           cstmt.setString(2,this.texte);
           cstmt.setInt(3,this.categorie.getIdCategorie());
           cstmt.executeUpdate();
           this.idMessage = cstmt.getInt(1); 
+          //Log.e("okokok ","okok");
        }
        catch(Exception e ) {
-          throw new Exception(""/*Erreur de création"*/+e.getMessage());
+           throw new Exception(""/*Erreur de création"*/+e.getMessage());
        }   
     }
-     	  
+     	
+    /*public void create2(String text,int idCat) throws Exception {
+        // CallableStatement cstmt = null;
+        int idMes = 0;
+        try
+        {  String query = "CALL CREATE_MESSAGE(?,?,?)";
+           CallableStatement cstmt = dbConnect.prepareCall(query);
+           cstmt.registerOutParameter(1,java.sql.Types.INTEGER);
+           cstmt.setString(2,text);
+           cstmt.setInt(3,idCat);
+           cstmt.executeUpdate();
+           idMes = cstmt.getInt(1); 
+           }
+        catch(Exception e ) {
+            throw new Exception(""/*Erreur de création"+e.getmessage );
+        }   
+     }
+    */
 
     @Override
     public void update() throws Exception {

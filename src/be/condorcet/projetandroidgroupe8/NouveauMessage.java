@@ -84,31 +84,28 @@ public class NouveauMessage extends ActionBarActivity {
 		try	{
 			MessageDB messag = new MessageDB(msg,new Categorie(idCategorie));
 		    messag.create();
+		    Toast.makeText(this, getResources().getString(R.string.estEnr) + " " + msg , Toast.LENGTH_SHORT).show();
 		    
+		   
 		}
 		catch(Exception e) {
+			Log.e("erreur !!!!!!!",""+e);
+			Toast.makeText(this, getResources().getString(R.string.estEnr) + " " + msg , Toast.LENGTH_SHORT).show();
 			if(e.getMessage().equals("null"))
 			{
-				Toast.makeText(this, getResources().getString(R.string.estEnr) + " " + msg , Toast.LENGTH_SHORT).show();
-				Log.e("erreur !!!!!!!",e.getMessage());
+				
+				Log.e("erreur !!!!!!!",""+e);
 			}
 			else{
 				Log.e("erreur2 !!!!!!!",e.getMessage());
-			if(e.getMessage().substring(0,5).equals("OALL8")){
+			/*if(e.getMessage().substring(0,5).equals("OALL8")){
 				Toast.makeText(this, getResources().getString(R.string.errDoublMsg) , Toast.LENGTH_SHORT).show();
 			  
-			} 
+			} */
 			
 			}
 		}
-		/*try	{
-			Log.e("erreur commit !!!!!!!","non1");
-		    con.commit();
-		    Log.e("erreur commit !!!!!!!","non2");
-	     }
-		catch(Exception e) {
-			Log.e("erreur commit !!!!!!!",e.getMessage());
-		}*/
+		
 		Intent i = new Intent(NouveauMessage.this,Accueil.class);						
 		startActivity(i);
 		finish();

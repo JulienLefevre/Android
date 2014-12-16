@@ -37,4 +37,17 @@
 
 	<string name="accesDB">Access to the database</string>
 	
+	<string name="title_activity_choix_communaute">Choosing a community</string>
+    <string name="choixCommunaute">Please select a community</string>
+    <string name="title_activity_nouveau_message">New message</string>
+    <string name="TitreNouvMsg">New message</string>
+    <string name="soustitreNvMsg">Enter a message</string>
+    <string name="boutonAjTilda">Add variable fields</string>
+    <string name="boutonEnregistrer">Save</string>
+	<string name="button_RetourAcc">Back to home</string>
+	<string name="estEnr">Save of :  </string>
+	<string name="errDoublMsg">The message already exists! </string>
+	<string name="titreChoixComm">Choosing the community</string>
+	
+	
 </resources>

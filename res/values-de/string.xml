@@ -36,5 +36,18 @@
 	<string name="titreChoixMsg">Auswahl der Nachricht</string>
 	
 	<string name="accesDB">"Der Zugang zu aktuellen Datenbank"</string>
+	
+    <string name="title_activity_choix_communaute">Die Wahl eines Community</string>
+    <string name="choixCommunaute">Bitte wählen Sie einen Community</string>
+    <string name="title_activity_nouveau_message">Neue Nachricht</string>
+    <string name="TitreNouvMsg">Neue Nachricht</string>
+    <string name="soustitreNvMsg">Geben Sie eine Nachricht</string>
+    <string name="boutonAjTilda">In variablen Feldern</string>
+    <string name="boutonEnregistrer">Sparen</string>
+	<string name="button_RetourAcc">Zurück zur Startseite</string>
+	<string name="estEnr">Einchecken: </string>
+	<string name="errDoublMsg">Die Meldung existiert bereits! </string>
+	<string name="titreChoixComm">Die Wahl der Community</string>
+	
     
 </resources>

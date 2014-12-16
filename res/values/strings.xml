@@ -31,17 +31,18 @@
     <string name="TitreModifMsg">Edition du message </string>
     <string name="num">Numéro : </string>
     <string name="titreChoixMsg">Choix du message</string>
-    <string name="accesDB">"Accès à la base de données en cours"</string>
-    <string name="title_activity_choix_communaute">ChoixCommunaute</string>
+    <string name="accesDB">Accès à la base de données en cours</string>
+    
+    <string name="title_activity_choix_communaute">Choix d\'une communauté</string>
     <string name="choixCommunaute">Veuillez choisir une communauté</string>
-    <string name="title_activity_nouveau_message">NouveauMessage</string>
+    <string name="title_activity_nouveau_message">Nouveau message</string>
     <string name="TitreNouvMsg">Nouveau message</string>
     <string name="soustitreNvMsg">Entrez un message</string>
     <string name="boutonAjTilda">Ajouter un champs variable</string>
     <string name="boutonEnregistrer">Enregistrer</string>
-	<string name="button_RetourAcc">Retour</string>
+	<string name="button_RetourAcc">Retour à l\'accueil</string>
 	<string name="estEnr">Enregistrement de :  </string>
-	<string name="errDoublMsg">Le message existe déjà</string>
+	<string name="errDoublMsg">Le message existe déjà ! </string>
 	<string name="titreChoixComm">Choix de la communauté</string>
 	
 </resources>
