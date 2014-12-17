@@ -45,7 +45,7 @@
     <string name="boutonAjTilda">In variablen Feldern</string>
     <string name="boutonEnregistrer">Sparen</string>
 	<string name="button_RetourAcc">Zurück zur Startseite</string>
-	<string name="estEnr">Einchecken: </string>
+	<string name="estEnr">Speichern von : </string>
 	<string name="errDoublMsg">Die Meldung existiert bereits! </string>
 	<string name="titreChoixComm">Die Wahl der Community</string>
 	

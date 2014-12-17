@@ -43,15 +43,15 @@
 	<string name="accesDB">Toegang tot de databank</string>
 	
 	
-    <string name="title_activity_choix_communaute">Choosing a community</string>
-    <string name="choixCommunaute">Veuillez choisir une communauté</string>
-    <string name="title_activity_nouveau_message">Nouveau message</string>
-    <string name="TitreNouvMsg">Nouveau message</string>
-    <string name="soustitreNvMsg">Entrez un message</string>
-    <string name="boutonAjTilda">Ajouter un champs variable</string>
-    <string name="boutonEnregistrer">Enregistrer</string>
-	<string name="button_RetourAcc">Retour à l\'accueil</string>
-	<string name="estEnr">Enregistrement de :  </string>
-	<string name="errDoublMsg">Le message existe déjà ! </string>
-	<string name="titreChoixComm">Choix de la communauté</string>
+    <string name="title_activity_choix_communaute">Kies een gemeenschap</string>
+    <string name="choixCommunaute">Kunt u bladeren gemeenschap</string>
+    <string name="title_activity_nouveau_message">Nieuwe berichten</string>
+    <string name="TitreNouvMsg">Nieuwe berichten</string>
+    <string name="soustitreNvMsg">Voer een bericht</string>
+    <string name="boutonAjTilda">Voeg een variabele veld</string>
+    <string name="boutonEnregistrer">Sparen</string>
+	<string name="button_RetourAcc">Terug naar menu</string>
+	<string name="estEnr">Opname te </string>
+	<string name="errDoublMsg">Het bericht bestaat al </string>
+	<string name="titreChoixComm">Keuze van de gemeenschap</string>
 </resources>
